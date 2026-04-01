@@ -3,6 +3,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\LevelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,3 +24,5 @@ Route::get ('/user/{id}/name/{name}', [UserController::class, 'show']);
 
 // Route Halaman Penjualan
 Route::get ('/sales', [SalesController::class, 'Sales']);
+
+Route::get('/level', [LevelController::class, 'index']);
