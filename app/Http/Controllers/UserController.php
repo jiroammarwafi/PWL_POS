@@ -10,7 +10,9 @@ class UserController extends Controller
 {
     public function index()
 {
-     $user = UserModel::firstWhere('level_id', 1); // Mengambil data user dengan level_id 1
+    $user = UserModel::findOr(1, ['username', 'nama'], function(){
+        abort(404);
+    }); // Mencari user dengan ID 1 dan hanya mengambil kolom 'username' dan 'nama'
      return view('user', ['data' => $user]); // Mengirim data user ke view 'user'   
 }
 }
