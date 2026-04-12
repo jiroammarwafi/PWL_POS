@@ -10,25 +10,7 @@ class UserController extends Controller
 {
     public function index()
 {
-    // $user = UserModel::firstOrCreate(
-    //     [
-    //         'username' => 'manager22',
-    //         'nama' => 'Manager Dua Dua',
-    //         'password' => Hash::make('12345'), 
-    //         'level_id' => 2
-    //     ], // Jika tidak ada, maka buat record baru dengan data tersebut.
-    // );
-
-    // $user = UserModel::firstOrNew(
-    //     [
-    //         'username' => 'manager33',
-    //         'nama' => 'Manager Tiga Tiga',
-    //         'password' => Hash::make('12345'),
-    //         'level_id' => 2
-    //     ], // Mencari record dengan data tersebut.
-    // );
-    // $user ->save(); // Menyimpan record ke database jika belum ada, atau memperbarui jika sudah ada.
-
+    // Praktikum 2.5 - isDirty() and isClean() Methods
     // $user = UserModel::create([
     //     'username' => 'manager55',
     //     'nama' => 'Manager55',
