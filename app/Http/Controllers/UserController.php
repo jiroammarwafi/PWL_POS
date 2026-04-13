@@ -31,4 +31,24 @@ class UserController extends Controller
 
         return redirect('/user');
     }
+
+    public function ubah($id)
+    {
+        $user = UserModel::find($id); // Mencari pengguna berdasarkan ID
+        return view('user_ubah', ['data' => $user]); // Mengirim data pengguna ke view untuk diubah
+    }
+
+    public function ubah_simpan($id, Request $request)
+    {
+        $user = UserModel::find($id);
+
+        $user->username = $request->username;
+        $user->nama = $request->nama;
+        $user->password = Hash::make($request->password);
+        $user->level_id = $request->level_id;
+
+        $user->save();
+
+        return redirect('/user');
+    }
 }
