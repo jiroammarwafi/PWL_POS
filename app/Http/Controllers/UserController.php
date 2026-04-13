@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\LevelModel;
 
 class UserController extends Controller
 {
     public function index()
-{
-    // Read (Membaca data pengguna dari database)
-    $user = UserModel::all(); // Mengambil semua data pengguna dari database
-    return view('user', ['data' => $user]); // Mengirim data pengguna ke view
-}
+    {
+        /*
+        // Read (Membaca data pengguna dari database)
+        $user = UserModel::with('level')->get(); // Mengambil semua data pengguna beserta relasi level
+        dd($user); // Menampilkan data pengguna untuk debugging
+        */
+        $user = UserModel::with('level')->get(); // Mengambil semua data pengguna beserta relasi level
+        return view('user', ['data' => $user]); // Mengirim data pengguna ke
+    }
 
     public function tambah()
     {
@@ -59,4 +64,6 @@ class UserController extends Controller
 
         return redirect('/user'); // Mengarahkan kembali ke halaman daftar pengguna
     }
+
+
 }
