@@ -14,4 +14,9 @@ class UserController extends Controller
     $user = UserModel::all(); // Mengambil semua data pengguna dari database
     return view('user', ['data' => $user]); // Mengirim data pengguna ke view
 }
+
+    public function tambah()
+    {
+        return view('user_tambah'); // Menampilkan form untuk menambahkan pengguna baru
+    }
 }
